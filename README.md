@@ -1,0 +1,29 @@
+# Wine quality prediction
+
+This project implements a complete ML pipeline for predicting white wine quality based on results of a physicochemical tests.
+
+Midterm project for [ML Zoomcamp](https://datatalks.club/blog/machine-learning-zoomcamp.html) by [DataTalks.Club](https://datatalks.club/)
+
+## Description of the problem
+
+Evaluating wine quality usually requires expert tasters and time-consuming sensory tests. This process can be subjective, expensive, and inconsistent.
+
+This project aims to address this problem by exploring how data and machine learning can help to predict quality more objectively and efficiently.
+
+The project try to understand which chemical have the most influence on quality and taste.
+
+Because of data imbalance, we will try to detect if wine should be classified as `excellent` or not, depending on its quality ( >= 8).
+
+
+## Running project
+
+### 1. Get data
+
+As dataset project uses dataset [Wine Quality](https://archive.ics.uci.edu/dataset/186/wine+quality) from UC Irvine Machine Learning Repository.
+Dataset related red and white variants of the Portuguese "Vinho Verde" wines.
+
+Alternatively, same dataset can be acquired from [Kaggle](https://www.kaggle.com/datasets/arnavs19/wine-quality-uci-machine-learning-repository/data).
+
+To reproduce results, download dataset and place file named `winequality-white.csv` into `data` folder.
+
+### 2. Run project

@@ -1,0 +1,13 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[codz]
+*$py.class
+
+# folder for storing dataset
+data/*
+!data/.gitkeep
+
+.venv/*
+
+.env
+.python-version
