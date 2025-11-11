@@ -4,4 +4,13 @@ version = "0.1.0"
 description = "ML pipeline for predicting is wine excellent or not"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "jupyterlab>=4.4.7",
+    "matplotlib>=3.10.6",
+    "notebook>=7.4.5",
+    "numpy>=2.3.3",
+    "pandas>=2.3.2",
+    "scikit-learn>=1.6.1",
+    "seaborn>=0.13.2",
+    "xgboost>=3.1.1",
+]
