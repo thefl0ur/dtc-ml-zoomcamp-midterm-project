@@ -26,4 +26,41 @@ Alternatively, same dataset can be acquired from [Kaggle](https://www.kaggle.com
 
 To reproduce results, download dataset and place file named `winequality-white.csv` into `data` folder.
 
-### 2. Run project
+As I don't and wan't to struggle with licenses, dataset is not included into this repo.
+
+### 2. Prepare environment
+
+Project uses [`uv`](https://docs.astral.sh/uv/) as dependency and environment manager. Although, thanks to standardization, it is not necessary to use it for reproduction.
+
+Follow instruction for you case. Instruction provided for linux, may variate depending on your flavor/OS.
+
+#### with uv
+1. Init virtual environment
+```bash
+uv venv
+```
+2. Activate environment
+```bash
+source .venv/bin/activate 
+```
+3. Install dependencies  
+Pass `--dev` argument to install additional deps, needed for running notebook/training script
+ ```bash
+uv sync [--dev]
+```
+
+#### without uv
+
+1. Init virtual environment
+```bash
+python -m venv .venv
+```
+2. Activate environment
+```bash
+source .venv/bin/activate 
+```
+3. Install dependencies  
+Pass `".[dev]"` to command in order  to install additional deps, needed for running notebook/training script
+ ```bash
+pip install .
+```
