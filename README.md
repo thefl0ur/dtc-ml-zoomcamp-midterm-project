@@ -105,12 +105,28 @@ Execute command
 make run
 ```
 
+#### 3.3 Deployed service
+
+One instance of this app deployed to `Render.io`. You can access it on `https://mlz-bsqg.onrender.com/`
+
+> On free tier, `Render.io` downs service while it is not active, on first request it can be pretty long, while instance is spinning up.
+
+Deploy is based on `docker`-image. Follow [official](https://render.com/docs/deploying-an-image) guide to deploy.
+
 ### 4 Access result
 
-Send `json`-data to `/predict` route.
+Send `json`-data to `/predict` rout in order to get prediction, how big probability of wine being excellent.
 
-Example below show example request.
+Examples below shows how to send request to service.
+
+#### local
 
 ```bash
 curl -X POST 127.0.0.1:8081/predict -d '{"fixed acidity":6.2,"volatile acidity":0.66,"residual sugar":1.2,"chlorides":0.029,"free sulfur dioxide":29,"pH":3.33,"sulphates":0.39,"alcohol":12.8}'
+```
+
+#### web
+
+```bash
+curl -X POST https://mlz-bsqg.onrender.com/predict -d '{"fixed acidity":6.2,"volatile acidity":0.66,"residual sugar":1.2,"chlorides":0.029,"free sulfur dioxide":29,"pH":3.33,"sulphates":0.39,"alcohol":12.8}'
 ```
