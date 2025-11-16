@@ -113,6 +113,8 @@ One instance of this app deployed to [`Render`](https://render.com/). You can ac
 
 Deploy is based on `docker`-image. Follow [official](https://render.com/docs/deploying-an-image) guide to deploy.
 
+After initial deploy, was added mechism to trigger deploy via http-hook. Corresponding functionality was added into Makefile. Now, after publishing image, fires trigger to deploy new version of image.
+
 ### 4 Access result
 
 Send `json`-data to `/predict` rout in order to get prediction, how big probability of wine being excellent.
