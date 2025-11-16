@@ -53,9 +53,7 @@ def train_model(df: pd.DataFrame) -> xgb.XGBClassifier:
 
 
 def save_model(model: xgb.XGBClassifier, path: str | None = None) -> None:
-    breakpoint()
     path = path or '.'
-
     result_date = datetime.now().strftime("%Y%m%d_%H%M%S")
     full_path = Path(path) / f"model_{result_date}.json"
 

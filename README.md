@@ -28,13 +28,14 @@ To reproduce results, download dataset and place file named `winequality-white.c
 
 As I don't and wan't to struggle with licenses, dataset is not included into this repo.
 
-### 2. Prepare environment
+### 2. Prepare
 
+#### 2.1 Environment
 Project uses [`uv`](https://docs.astral.sh/uv/) as dependency and environment manager. Although, thanks to standardization, it is not necessary to use it for reproduction.
 
 Follow instruction for you case. Instruction provided for linux, may variate depending on your flavor/OS.
 
-#### with uv
+##### 2.1.1 with uv
 1. Init virtual environment
 ```bash
 uv venv
@@ -49,7 +50,7 @@ Pass `--dev` argument to install additional deps, needed for running notebook/tr
 uv sync [--dev]
 ```
 
-#### without uv
+##### 2.1.2 without uv
 
 1. Init virtual environment
 ```bash
@@ -64,3 +65,19 @@ Pass `".[dev]"` to command in order  to install additional deps, needed for runn
  ```bash
 pip install .
 ```
+
+
+#### 2.2 Train model
+
+Script for training provided as `scripts/train.py`.
+
+To train execute next command.
+
+```bash
+python3 scripts/train.py data/winequality-white.csv -o model/
+```
+
+script params:
+* `input_file` - file with dataset
+* `-o`/`--output_dir` - where to store trained model. Default is current dir. 
+
