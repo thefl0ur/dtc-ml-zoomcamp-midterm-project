@@ -45,10 +45,25 @@ uv venv
 source .venv/bin/activate 
 ```
 3. Install dependencies  
-Pass `--dev` argument to install additional deps, needed for running notebook/training script/local server
- ```bash
-uv sync [--dev]
+
+Only main deps
+
+```bash
+uv sync --no-dev
 ```
+In order to run notebook/training script/local server group `dev` deps are needed.
+Install them with next command:
+
+```bash
+uv sync --only-dev
+```
+
+Alternatively, all deps can be installed with
+
+```bash
+uv sync
+```
+
 
 ##### 2.1.2 without uv
 
