@@ -81,3 +81,36 @@ script params:
 * `input_file` - file with dataset
 * `-o`/`--output_dir` - where to store trained model. Default is current dir. 
 
+#### 2.3 Build image
+
+For simplicity `Makefile` is provided.
+
+Execute `make build` to build Docker image.
+
+### 3 Run service
+
+#### 3.1 run locally
+
+Dev-dependencies required to run
+
+```bash
+MODEL_PATH=model/trained_model.json litestar --app server.app:create_app run --port 8081
+```
+
+#### 3.2 run with Docker
+
+Execute command
+
+```bash
+make run
+```
+
+### 4 Access result
+
+Send `json`-data to `/predict` route.
+
+Example below show example request.
+
+```bash
+curl -X POST 127.0.0.1:8081/predict -d '{"fixed acidity":6.2,"volatile acidity":0.66,"residual sugar":1.2,"chlorides":0.029,"free sulfur dioxide":29,"pH":3.33,"sulphates":0.39,"alcohol":12.8}'
+```
