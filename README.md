@@ -35,15 +35,16 @@ Project uses [`uv`](https://docs.astral.sh/uv/) as dependency and environment ma
 
 Follow instruction for you case. Instruction provided for linux, may variate depending on your flavor/OS.
 
-##### 2.1.1 with uv
 1. Init virtual environment
 ```bash
 uv venv
 ```
+
 2. Activate environment
 ```bash
 source .venv/bin/activate 
 ```
+
 3. Install dependencies  
 
 Only main deps
@@ -62,23 +63,6 @@ Alternatively, all deps can be installed with
 
 ```bash
 uv sync
-```
-
-
-##### 2.1.2 without uv
-
-1. Init virtual environment
-```bash
-python -m venv .venv
-```
-2. Activate environment
-```bash
-source .venv/bin/activate 
-```
-3. Install dependencies  
-Pass `".[dev]"` to command in order  to install additional deps, needed for running notebook/training script/local server
- ```bash
-pip install .
 ```
 
 
