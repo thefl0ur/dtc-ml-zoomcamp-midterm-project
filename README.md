@@ -20,7 +20,7 @@ Because of data imbalance, we will try to detect if wine should be classified as
 ### 1. Get data
 
 As dataset project uses dataset [Wine Quality](https://archive.ics.uci.edu/dataset/186/wine+quality) from UC Irvine Machine Learning Repository.
-Dataset related red and white variants of the Portuguese "Vinho Verde" wines.
+Dataset related to red and white variants of the Portuguese "Vinho Verde" wines.
 
 Alternatively, same dataset can be acquired from [Kaggle](https://www.kaggle.com/datasets/arnavs19/wine-quality-uci-machine-learning-repository/data).
 
@@ -45,7 +45,7 @@ uv venv
 source .venv/bin/activate 
 ```
 3. Install dependencies  
-Pass `--dev` argument to install additional deps, needed for running notebook/training script
+Pass `--dev` argument to install additional deps, needed for running notebook/training script/local server
  ```bash
 uv sync [--dev]
 ```
@@ -61,7 +61,7 @@ python -m venv .venv
 source .venv/bin/activate 
 ```
 3. Install dependencies  
-Pass `".[dev]"` to command in order  to install additional deps, needed for running notebook/training script
+Pass `".[dev]"` to command in order  to install additional deps, needed for running notebook/training script/local server
  ```bash
 pip install .
 ```
@@ -107,9 +107,9 @@ make run
 
 #### 3.3 Deployed service
 
-One instance of this app deployed to `Render.io`. You can access it on `https://mlz-bsqg.onrender.com/`
+One instance of this app deployed to [`Render`](https://render.com/). You can access it on `https://mlz-bsqg.onrender.com/`
 
-> On free tier, `Render.io` downs service while it is not active, on first request it can be pretty long, while instance is spinning up.
+> On free tier, [`Render`](https://render.com/) downs service while it is not active, on first request it can be pretty long, while instance is spinning up.
 
 Deploy is based on `docker`-image. Follow [official](https://render.com/docs/deploying-an-image) guide to deploy.
 
@@ -119,7 +119,7 @@ Send `json`-data to `/predict` rout in order to get prediction, how big probabil
 
 Examples below shows how to send request to service.
 
-#### local
+#### local/docker
 
 ```bash
 curl -X POST 127.0.0.1:8081/predict -d '{"fixed acidity":6.2,"volatile acidity":0.66,"residual sugar":1.2,"chlorides":0.029,"free sulfur dioxide":29,"pH":3.33,"sulphates":0.39,"alcohol":12.8}'
