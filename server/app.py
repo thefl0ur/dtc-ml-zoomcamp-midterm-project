@@ -1,11 +1,22 @@
 import os
+import xgboost as xgb
+import numpy as np
+
+from pathlib import Path
+
 from litestar import Litestar, Request, post
 from litestar.di import Provide
-import xgboost as xgb
+
+
+MODEL_NAME = os.getenv("MODEL_PATH", "model.json")
+
 
 async def on_startup(app: Litestar) -> None:
+    if not Path(MODEL_NAME).exists():
+        raise RuntimeError("Environment variable MODEL_PATH is required but missing.")
+
     model = xgb.XGBClassifier()
-    model.load_model(os.environ["MODEL_NAME"])
+    model.load_model(MODEL_NAME)
     app.state.model = model
 
 
@@ -14,17 +25,19 @@ async def provide_model(request: Request) -> xgb.XGBClassifier:
 
 
 @post("/predict")
-async def predict(data: dict, booster: xgb.XGBClassifier) -> dict[str, str]:
-    return booster.predict(data)
+async def predict(data: dict, booster: xgb.XGBClassifier) -> dict:
+    prediction = booster.predict_proba(np.array([list(data.values())], dtype=float))[0][1]
+    return { "prediction": round(float(prediction), 2) }
 
 
 def create_app() -> Litestar:
     app = Litestar(
         on_startup=[on_startup],
         dependencies={
-            "rpc_client": Provide(provide_model),
+            "booster": Provide(provide_model),
         },
         openapi_config=None,
+        route_handlers=[predict]
     )
 
     return app
